@@ -20,18 +20,18 @@ apiService.interceptors.request.use(
 );
 
 // Add an interceptor for responses
-apiService.interceptors.response.use(
-  (response) => response, // Pass through valid responses
-  (error) => {
-    console.log("Response Interceptor Triggered:", error.response); // Log error details
-    if (error.response && error.status === 401) {
-      alert("Session expired. Please log in again.");
-      sessionStorage.removeItem("token");
-      window.location.assign("/"); // Redirect to login page
-    }
-    return Promise.reject(error); // Forward the error for further handling
-  }
-);
+// apiService.interceptors.response.use(
+//   (response) => response, // Pass through valid responses
+//   (error) => {
+//     console.log("Response Interceptor Triggered:", error.response); // Log error details
+//     if (error.response && error.response.status === 401) {
+//       alert("Session expired. Please log in again.");
+//       sessionStorage.removeItem("token");
+//       window.location.assign("/"); // Redirect to login page
+//     }
+//     return Promise.reject(error); // Forward the error for further handling
+//   }
+// );
 
 // Auth endpoints
 const authService = {
